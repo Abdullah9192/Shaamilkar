@@ -1,0 +1,37 @@
+namespace: shamilkar
+
+images:
+  customer: 944838482612.dkr.ecr.ap-northeast-1.amazonaws.com/enaam:shamilkar_customer
+
+tag: 
+
+pullpolicy: Always
+
+hostnames:
+  customer: customer-shamilkar.enaam.pk
+
+node_env: staging
+web_env: staging
+
+
+ports:
+  customer: 80
+
+# postgresql:
+#   endpoint: proxy-staging-7.proxy-cuw67urnz2sk.us-west-1.rds.amazonaws.com
+#   port: 5432
+#   postgresUsername: postgres
+#   postgresPassword:
+#   workflowreaduser: workflow_read_user
+#   workflowreadpass: 
+
+
+# redis:
+#   host: redis://redis-server.levvy.net
+#   password:
+#   port: 6379
+#   redis_channel: staging_workflow_channel 
+
+
+# databases:
+#   shamilkar: shamilkar

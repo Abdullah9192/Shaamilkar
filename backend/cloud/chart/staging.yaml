@@ -1,0 +1,37 @@
+namespace: staging-shamilkar
+
+images:
+  backend: 944838482612.dkr.ecr.ap-northeast-1.amazonaws.com/enaam:shamilkar_backend_staging
+
+tag: 
+
+pullpolicy: Always
+
+hostnames:
+  backend: st-api-shamilkar.enaam.pk
+
+node_env: staging
+web_env: staging
+
+
+ports:
+  backend: 5000
+
+# postgresql:
+#   endpoint: proxy-staging-7.proxy-cuw67urnz2sk.us-west-1.rds.amazonaws.com
+#   port: 5432
+#   postgresUsername: postgres
+#   postgresPassword:
+#   workflowreaduser: workflow_read_user
+#   workflowreadpass: 
+
+
+# redis:
+#   host: redis://redis-server.levvy.net
+#   password:
+#   port: 6379
+#   redis_channel: staging_workflow_channel 
+
+
+databases:
+  shamilkar: shamilkar

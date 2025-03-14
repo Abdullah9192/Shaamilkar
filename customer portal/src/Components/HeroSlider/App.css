@@ -1,0 +1,149 @@
+:root {
+  --green: #38a236;
+  --white: #ffffff;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.App {
+  background-color: #f2f2f2;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal*/
+.custom-modal .modal-content {
+  border-radius: 30px !important;
+  margin: 10px;
+  background-color: #edfcf5;
+}
+.custom-modal .modal-title {
+  text-align: center;
+}
+.modal-scrollbar {
+  max-height: 400px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 10px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+/* category-widget */
+.category-widget {
+  width: 10rem;
+  border-radius: 1rem !important;
+  height: auto;
+  /* background: #000 !important; */
+}
+
+/* loader */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--green);
+  border-bottom-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* hero slider */
+.hero-slider {
+  background-color: var(--green) !important;
+  border-radius: 20px;
+}
+.heroImg img {
+  mix-blend-mode: multiply;
+}
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 20px !important;
+  opacity: 1;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, black, var(--white)) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: linear-gradient(to right, var(--green), var(--white)) !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-next-button,
+.custom-prev-button {
+  height: 40px !important;
+  width: 40px !important;
+  background: lightgray !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.custom-prev-button:hover,
+.custom-next-button:hover {
+  background: var(--green) !important;
+}

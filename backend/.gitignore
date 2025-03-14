@@ -1,0 +1,48 @@
+# Node.js dependencies
+/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Build directories
+/dist/
+/build/
+
+# Dependency directories
+/.pnp/
+/.pnp.js
+
+# IDE or Editor directories and files
+.vscode/
+.idea/
+
+# Package-lock or Yarn lock files (if you prefer to ignore them)
+# package-lock.json
+# yarn.lock
+
+# Coverage directory used by testing tools
+/coverage/
+
+# Miscellaneous files
+*.log
+*.pid
+*.gz
+*.bak
+
+# Debugging files
+/.eslintcache
+
+# Ignore test result files
+*.seed
+
+# Ignore npm logs
+npm-debug.log

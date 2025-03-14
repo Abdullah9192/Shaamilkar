@@ -1,0 +1,107 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           Int           @unique
+  name         String
+  email        String        @unique
+  phoneNumber  String        @unique
+  cnic         String        @unique // CNIC must be unique
+  password     String
+  otp          String? // For OTP verification
+  role         String
+  image        String?
+  otpExpiry    DateTime? // Optional: for OTP expiration
+  isVerified   Boolean       @default(false)
+  otpVerified Boolean        @default(false)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  applications Application[] // One user can have multiple applications
+}
+
+model Application {
+  id                       Int       @id @unique
+  userId                   Int
+  user                     User      @relation(fields: [userId], references: [id])
+  firstName                String
+  middleName               String?
+  lastName                 String
+  product                  Json
+  fatherName               String?
+  husbandName              String?
+  gender                   String
+  dateOfBirth              String
+  mobileNumber             String
+  cnic                     String
+  cnicFrontPhoto           String
+  cnicBackPhoto            String
+  email                    String
+  currentAddress           String
+  city                     String
+  livingSince              String
+  residenceType            String
+  // Employment Details
+  jobTitle                 String?
+  occupation               String?
+  occupationStatus         String
+  organizationName         String?
+  organizationAddress      String?
+  workingSince             String?
+  phoneOffice              String?
+  earningPerMonth          Float?
+  // Financial Info
+  sixMonthBankStatement    String
+  lastPaySlip              String
+  utilityBill              String
+  // References
+  referenceInfo            Json // Array to store references
+  status                   String? @default("Pending")
+  creditscore              String?
+  loanofficerattachments   Json?
+  creditofficerattachments Json?
+  forwardedtocm            Boolean
+  signaturepdf             Json?
+  reviewedAt               DateTime? // Optional: Time when reviewed
+  createdAt                DateTime  @default(now()) // Auto-created timestamp
+  updatedAt                DateTime  @updatedAt // Auto-updated timestamp
+
+  installmentPlan          InstallmentPlan?
+}
+
+model InstallmentPlan {
+  id                       Int      @id @unique
+  applicationId            Int      @unique
+  application              Application @relation(fields: [applicationId], references: [id])
+  productName              String
+  originalPrice            Float
+  downPayment              Float
+  remainingAmount          Float
+  selectedPlan             String
+  installments             Json     // Store the installments array as JSON
+  bankmnemonic             String?
+  reserved                 String?
+  createdAt                DateTime @default(now())
+}
+
+model OnelinkAuth {
+  id           String        @id @default(uuid()) // Primary key
+  username     String        @unique
+  password     String
+}
+
+model TransactionHistory {
+  TransAuthId       String   @unique // Generates a 6-digit integer
+  consumerNumber    String
+  TransactionAmount String
+  TranDate          String
+  TranTime          String
+  BankMnemonic      String
+  Reserved          String?
+  createdAt         DateTime @default(now())
+}

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "relname" . }}-admin
+  namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/name: {{ template "relname" . }}
+    app.kubernetes.io/component: admin
+    app.kubernetes.io/instance: {{ template "relname" . }}-admin
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/part-of: {{ template "relname" . }}
+    app.kubernetes.io/managed-by: helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "relname" . }}
+      component: admin
+  template:
+    metadata:
+      labels:
+        app: {{ template "relname" . }}
+        component: admin
+    spec:
+      terminationGracePeriodSeconds: 180
+      containers:
+      - name: {{ template "relname" . }}-admin
+        image: {{ .Values.images.admin }}{{ .Values.tag }}
+        imagePullPolicy: {{ .Values.pullpolicy }}
+        command:
+        # - sh
+        # - -c
+        # - "npx prisma generate && yarn start"
+        ports:
+        - containerPort: {{ .Values.ports.admin }}
+          name: http-admin

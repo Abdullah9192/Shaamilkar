@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --green: #38a236;
+  --darkgreen: #2d826e;
+  --btncolor: #9bc8a0;
+  --white: #ffffff;
+  --red: rgb(245, 75, 75);
+}
+
+.App {
+  background-color: rgb(246, 245, 245);
+  font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.button {
+  background-color: var(--btncolor) !important;
+}
+.button:hover {
+  background-color: #98e4a2 !important;
+}
+.glow {
+  border: 2px solid transparent;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.glow:hover {
+  box-shadow: 0 0 20px rgba(183, 248, 237, 0.8) !important;
+}
+.form-control {
+  box-shadow: none !important;
+}
+
+/* Modal*/
+.custom-modal .modal-content {
+  border-radius: 30px !important;
+  margin: 10px;
+  background-color: #fff;
+}
+.custom-modal .modal-title {
+  text-align: center;
+}
+.modal-scrollbar {
+  max-height: 400px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+.dashed-border {
+  border: 2px dashed var(--btncolor) !important;
+  padding: 8px;
+  border-radius: 5px; /* Optional */
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--darkgreen);
+  border-radius: 10px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+/* category-widget */
+.category-widget {
+  width: 10rem;
+  border-radius: 1rem !important;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .grid-container {
+    max-height: 240px;
+    grid-template-columns: repeat(1, minmax(160px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-container {
+    grid-template-columns: repeat(1, minmax(160px, 1fr));
+  }
+}
+
+/* Products-widget */
+.category-item {
+  transition: transform 0.4s ease-in-out;
+  background-color: white;
+}
+
+.category-item:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 20px #b7f8ed !important;
+}
+.grid-container {
+  text-align: center;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: center;
+}
+@media screen and (max-width: 1304px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* loader */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--green);
+  border-bottom-color: white;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* hero slider */
+.hero-slider3 {
+  background: linear-gradient(to right, black, blue) !important;
+  border-radius: 20px;
+}
+.hero-slider2 {
+  background: linear-gradient(to right, black, Red) !important;
+  border-radius: 20px;
+}
+.hero-slider {
+  background: linear-gradient(to right, black, var(--darkgreen)) !important;
+  border-radius: 20px;
+}
+.hero-slider1 {
+  background: linear-gradient(to right, black, yellow) !important;
+  /* background-color: var(--green) !important; */
+  border-radius: 20px;
+}
+.heroImg img {
+  /* mix-blend-mode: multiply;
+   */
+  height: 400px !important;
+}
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 20px !important;
+  opacity: 1;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  background: linear-gradient(to right, black, var(--white)) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: linear-gradient(to right, var(--green), var(--white)) !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-next-button,
+.custom-prev-button {
+  height: 40px !important;
+  width: 40px !important;
+  background: lightgray !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.custom-prev-button:hover,
+.custom-next-button:hover {
+  background: var(--green) !important;
+}
+
+.square {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+.loginbg {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 1) 85%,
+    rgba(45, 130, 110, 1) 100%
+  );
+}
+
+.dropzone:hover {
+  background-color: #f9f9f9 !important;
+}
+
+/* Footer.module.css or Footer.css */
+
+.footer-logo {
+  width: 180px; /* Default width */
+}
+
+.footer-text {
+  font-size: 1rem; /* Default font size */
+}
+
+/* Optional: Adjust container padding if Bootstrap's default isn't suitable */
+.container-fluid {
+  padding-left: 15px; /* Adjust as needed */
+  padding-right: 15px; /* Adjust as needed */
+}
+
+@media (max-width: 768px) {
+  .footer-logo {
+    width: 50px; /* Smaller width on smaller screens */
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+  }
+
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.loginbg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bg-custom-light {
+  background-color: #e0e0e0;
+}
+
+.cGreen {
+  color: var(--green);
+  font-weight: 700 !important;
+}

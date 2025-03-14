@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "relname" . }}-customer
+  namespace: {{ .Values.namespace }}
+  labels:
+    app.kubernetes.io/name: {{ template "relname" . }}
+    app.kubernetes.io/component: customer
+    app.kubernetes.io/instance: {{ template "relname" . }}-customer
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/part-of: {{ template "relname" . }}
+    app.kubernetes.io/managed-by: helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "relname" . }}
+      component: customer
+  template:
+    metadata:
+      labels:
+        app: {{ template "relname" . }}
+        component: customer
+    spec:
+      terminationGracePeriodSeconds: 180
+      containers:
+      - name: {{ template "relname" . }}-customer
+        image: {{ .Values.images.customer }}{{ .Values.tag }}
+        imagePullPolicy: {{ .Values.pullpolicy }}
+        command:
+        # - sh
+        # - -c
+        # - "npx prisma generate && yarn start"
+        ports:
+        - containerPort: {{ .Values.ports.customer }}
+          name: http-customer
